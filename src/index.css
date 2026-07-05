@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Light Theme Variables */
+:root {
+  --color-bg-main: #FDFBF7;
+  --color-bg-component: #F4F4F6;
+  --color-text-main: #222524;
+  --color-accent: #4A6B5D;
+}
+
+/* Dark Theme Variables */
+.dark {
+  --color-bg-main: #0D0E15;
+  --color-bg-component: #171923;
+  --color-text-main: #F3F4F6;
+  --color-accent: #39FF14;
+}
+
+/* Hide default cursor globally */
+*,
+*::before,
+*::after,
+html,
+body,
+a,
+button,
+input,
+select,
+textarea,
+[role="button"] {
+  cursor: none !important;
+}
+
+/* Global Background - The World Behind the Glass */
+#glass-portal-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+}
+
+#glass-portal-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #FDFBF7, #4A6B5D, #F4F4F6);
+  background-size: 200% 200%;
+  animation: organicShift 20s ease infinite;
+}
+
+.dark #glass-portal-bg::before {
+  background: radial-gradient(circle at 20% 30%, #0D0E15, #171923, #0a0a1a);
+  background-size: 200% 200%;
+  animation: cyberPulse 15s ease infinite;
+}
+
+@keyframes organicShift {
+  0%, 100% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+}
+
+@keyframes cyberPulse {
+  0%, 100% { background-position: 0% 0%; filter: hue-rotate(0deg); }
+  25% { background-position: 100% 0%; }
+  50% { background-position: 100% 100%; filter: hue-rotate(90deg); }
+  75% { background-position: 0% 100%; }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: transparent;
+  color: var(--color-text-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
