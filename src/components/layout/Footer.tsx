@@ -50,6 +50,7 @@ export default function Footer() {
             <div className="flex gap-2">
               <input
                 type="email"
+                name="newsletterEmail"
                 placeholder="Email address"
                 className="flex-1 px-4 py-2 backdrop-blur-md bg-white/20 border border-white/20 rounded-full text-sm focus:outline-none font-sans dark:bg-white/10 dark:border-neon-green/30"
               />

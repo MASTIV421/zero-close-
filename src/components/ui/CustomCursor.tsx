@@ -2,7 +2,6 @@ import { useEffect, useRef } from 'react'
 
 export default function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null)
-  const discoRef = useRef<HTMLDivElement>(null)
   const rafRef = useRef<number>(0)
   const pos = useRef({ x: 0, y: 0 })
   const target = useRef({ x: 0, y: 0 })
@@ -12,9 +11,8 @@ export default function CustomCursor() {
 
   useEffect(() => {
     const cursor = cursorRef.current
-    const disco = discoRef.current
 
-    if (!cursor || !disco) return
+    if (!cursor) return
 
     const handleMouseMove = (e: MouseEvent) => {
       target.current.x = e.clientX
@@ -33,14 +31,18 @@ export default function CustomCursor() {
       pos.current.x += dx * 0.3
       pos.current.y += dy * 0.3
 
-      cursor.style.transform = `translate3d(${pos.current.x - 16}px, ${pos.current.y - 16}px, 0)`
+      cursor.style.transform = `translate3d(${pos.current.x - 12}px, ${pos.current.y - 12}px, 0)`
 
       if (isMoving.current) {
         rotation.current += 0.8
       } else {
         rotation.current *= 0.95
       }
-      disco.style.transform = `rotate(${rotation.current}deg)`
+
+      const star = cursor.querySelector('.star-icon') as HTMLElement | null
+      if (star) {
+        star.style.transform = `rotate(${rotation.current}deg)`
+      }
 
       rafRef.current = requestAnimationFrame(animate)
     }
@@ -58,17 +60,23 @@ export default function CustomCursor() {
   return (
     <div
       ref={cursorRef}
-      className="fixed top-0 left-0 pointer-events-none z-[9999] w-8 h-8 transition-opacity duration-150"
+      className="fixed top-0 left-0 pointer-events-none z-[9999] w-6 h-6 transition-opacity duration-150"
       style={{ opacity: 1 }}
     >
-      <div
-        ref={discoRef}
-        className="w-full h-full rounded-full"
-        style={{
-          background: 'radial-gradient(circle at 30% 30%, #FF3366, #8B5CF6 60%, #06B6D4 90%)',
-          boxShadow: '0 0 0 2px rgba(255,51,102,0.4), 0 0 15px rgba(139,92,246,0.3), 0 0 25px rgba(6,182,212,0.2)',
-        }}
-      />
+      <svg
+        className="star-icon w-6 h-6"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 2L14.09 8.26L21 9.27L16.5 13.14L17.82 20.02L12 16.77L6.18 20.02L7.5 13.14L3 9.27L9.91 8.26L12 2Z"
+          fill="#FFD700"
+          stroke="#FFA500"
+          strokeWidth="1.5"
+          strokeLinejoin="round"
+        />
+      </svg>
     </div>
   )
 }

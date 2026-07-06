@@ -14,7 +14,7 @@ type CartItem = {
 type StoreState = {
   items: CartItem[]
   addItem: (item: CartItem) => void
-  removeItem: (id: string) => void
+  removeItem: (id: string, selectedSize: string, selectedColor: string) => void
   updateQuantity: (id: string, quantity: number) => void
   clearCart: () => void
   totalItems: () => number
@@ -50,9 +50,11 @@ const useStore = create<StoreState>()(
           }
           return { items: [...state.items, item] }
         }),
-      removeItem: (id) =>
+      removeItem: (id, selectedSize, selectedColor) =>
         set((state) => ({
-          items: state.items.filter((i) => i.id !== id),
+          items: state.items.filter(
+            (i) => !(i.id === id && i.selectedSize === selectedSize && i.selectedColor === selectedColor)
+          ),
         })),
       updateQuantity: (id, quantity) =>
         set((state) => ({

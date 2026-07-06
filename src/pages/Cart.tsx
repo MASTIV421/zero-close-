@@ -57,7 +57,7 @@ export default function Cart() {
                 <p className="text-[var(--color-accent)] font-sans dark:text-neon-green">${item.price} × {item.quantity}</p>
               </div>
               <button
-                onClick={() => removeItem(item.id)}
+                onClick={() => removeItem(item.id, item.selectedSize, item.selectedColor)}
                 className="text-[var(--color-text-main)]/50 hover:text-[var(--color-text-main)] transition-colors dark:text-[var(--color-text-main)]/50 dark:hover:text-[var(--color-text-main)]"
               >
                 <X size={20} />

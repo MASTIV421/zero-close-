@@ -33,6 +33,7 @@ export default function Checkout() {
               <label className="text-sm font-sans mb-2 block text-[var(--color-text-main)] dark:text-[var(--color-text-main)]">Full Name</label>
               <input
                 type="text"
+                name="fullName"
                 placeholder="John Doe"
                 required
                 className="w-full px-4 py-3 backdrop-blur-md bg-white/5 border border-white/10 rounded-full focus:outline-none font-sans text-[var(--color-text-main)] dark:bg-white/5 dark:border-neon-green/30"
@@ -43,6 +44,7 @@ export default function Checkout() {
               <label className="text-sm font-sans mb-2 block text-[var(--color-text-main)] dark:text-[var(--color-text-main)]">Email</label>
               <input
                 type="email"
+                name="email"
                 placeholder="john@example.com"
                 required
                 className="w-full px-4 py-3 backdrop-blur-md bg-white/5 border border-white/10 rounded-full focus:outline-none font-sans text-[var(--color-text-main)] dark:bg-white/5 dark:border-neon-green/30"
@@ -53,6 +55,7 @@ export default function Checkout() {
               <label className="text-sm font-sans mb-2 block text-[var(--color-text-main)] dark:text-[var(--color-text-main)]">Address</label>
               <input
                 type="text"
+                name="address"
                 placeholder="123 Street"
                 required
                 className="w-full px-4 py-3 backdrop-blur-md bg-white/5 border border-white/10 rounded-full focus:outline-none font-sans text-[var(--color-text-main)] dark:bg-white/5 dark:border-neon-green/30"
@@ -64,6 +67,7 @@ export default function Checkout() {
                 <label className="text-sm font-sans mb-2 block text-[var(--color-text-main)] dark:text-[var(--color-text-main)]">City</label>
                 <input
                   type="text"
+                  name="city"
                   placeholder="New York"
                   required
                   className="w-full px-4 py-3 backdrop-blur-md bg-white/5 border border-white/10 rounded-full focus:outline-none font-sans text-[var(--color-text-main)] dark:bg-white/5 dark:border-neon-green/30"
@@ -73,6 +77,7 @@ export default function Checkout() {
                 <label className="text-sm font-sans mb-2 block text-[var(--color-text-main)] dark:text-[var(--color-text-main)]">ZIP Code</label>
                 <input
                   type="text"
+                  name="zip"
                   placeholder="10001"
                   required
                   className="w-full px-4 py-3 backdrop-blur-md bg-white/5 border border-white/10 rounded-full focus:outline-none font-sans text-[var(--color-text-main)] dark:bg-white/5 dark:border-neon-green/30"
@@ -84,6 +89,7 @@ export default function Checkout() {
               <label className="text-sm font-sans mb-2 block text-[var(--color-text-main)] dark:text-[var(--color-text-main)]">Card Number</label>
               <input
                 type="text"
+                name="cardNumber"
                 placeholder="**** **** **** ****"
                 required
                 className="w-full px-4 py-3 backdrop-blur-md bg-white/5 border border-white/10 rounded-full focus:outline-none font-sans text-[var(--color-text-main)] dark:bg-white/5 dark:border-neon-green/30"
@@ -95,6 +101,7 @@ export default function Checkout() {
                 <label className="text-sm font-sans mb-2 block text-[var(--color-text-main)] dark:text-[var(--color-text-main)]">Expiry</label>
                 <input
                   type="text"
+                  name="expiry"
                   placeholder="MM/YY"
                   required
                   className="w-full px-4 py-3 backdrop-blur-md bg-white/5 border border-white/10 rounded-full focus:outline-none font-sans text-[var(--color-text-main)] dark:bg-white/5 dark:border-neon-green/30"
@@ -104,6 +111,7 @@ export default function Checkout() {
                 <label className="text-sm font-sans mb-2 block text-[var(--color-text-main)] dark:text-[var(--color-text-main)]">CVV</label>
                 <input
                   type="text"
+                  name="cvv"
                   placeholder="***"
                   required
                   className="w-full px-4 py-3 backdrop-blur-md bg-white/5 border border-white/10 rounded-full focus:outline-none font-sans text-[var(--color-text-main)] dark:bg-white/5 dark:border-neon-green/30"
