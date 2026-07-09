@@ -37,11 +37,11 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-transparent">
+    <div className="min-h-screen flex items-center justify-center">
       <div className="w-full max-w-md">
-        <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-8 dark:bg-white/5 dark:border-neon-green/20">
-          <h1 className="text-3xl font-sans mb-2 text-center text-[var(--color-text-main)]">Admin Login</h1>
-          <p className="text-sm text-[var(--color-text-main)]/70 text-center mb-8">
+        <div className="backdrop-blur-xl bg-mist-100/70 border border-haze-sky/30 rounded-2xl p-8">
+          <h1 className="text-3xl font-sans mb-2 text-center text-mist-900">Admin Login</h1>
+          <p className="text-sm text-mist-600 text-center mb-8">
             Sign in to access the admin panel
           </p>
 
@@ -53,25 +53,25 @@ export default function Login() {
 
           <form onSubmit={handleLogin} className="space-y-6">
             <div>
-              <label className="block text-sm font-sans mb-2 text-[var(--color-text-main)]">Email</label>
+              <label className="block text-sm font-sans mb-2 text-mist-700">Email</label>
               <input
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:border-white/30 focus:outline-none text-[var(--color-text-main)]"
+                className="w-full px-4 py-3 bg-mist-200/60 border border-haze-sky/30 rounded-lg focus:border-haze-sky focus:outline-none text-mist-900"
                 placeholder="admin@example.com"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-sans mb-2 text-[var(--color-text-main)]">Password</label>
+              <label className="block text-sm font-sans mb-2 text-mist-700">Password</label>
               <input
                 type="password"
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:border-white/30 focus:outline-none text-[var(--color-text-main)]"
+                className="w-full px-4 py-3 bg-mist-200/60 border border-haze-sky/30 rounded-lg focus:border-haze-sky focus:outline-none text-mist-900"
                 placeholder="••••••••"
               />
             </div>
@@ -79,14 +79,14 @@ export default function Login() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 bg-white/20 text-[var(--color-text-main)] rounded-full hover:bg-white/30 transition-all disabled:opacity-50"
+              className="w-full py-3 bg-haze-sky/25 text-mist-900 rounded-full hover:bg-haze-sky/40 transition-all border border-haze-sky/30 disabled:opacity-50"
             >
               {loading ? 'Signing in...' : 'Sign In'}
             </button>
           </form>
 
           <div className="mt-6 text-center">
-            <a href="/" className="text-sm text-[var(--color-accent)] hover:text-[var(--color-text-main)] transition-colors">
+            <a href="/" className="text-sm text-haze-skyDeep hover:text-mist-900 transition-colors">
               Back to Store
             </a>
           </div>

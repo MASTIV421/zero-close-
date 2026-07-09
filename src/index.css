@@ -2,35 +2,93 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============ Ice Glass Effect ============ */
+.ice-glass {
+  position: relative;
+}
+
+.ice-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    linear-gradient(135deg, rgba(180,220,255,0.06), transparent 40%),
+    linear-gradient(315deg, rgba(180,220,255,0.05), transparent 40%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ice-glass::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image:
+    radial-gradient(circle at 15% 25%, rgba(255,255,255,0.45) 0 2px, transparent 4px),
+    radial-gradient(circle at 60% 55%, rgba(255,255,255,0.35) 0 2px, transparent 3px),
+    radial-gradient(circle at 80% 15%, rgba(255,255,255,0.3) 0 3px, transparent 5px),
+    radial-gradient(circle at 38% 80%, rgba(255,255,255,0.25) 0 2px, transparent 3px),
+    radial-gradient(circle at 88% 68%, rgba(255,255,255,0.3) 0 2px, transparent 4px);
+  mix-blend-mode: overlay;
+  opacity: 0.5;
+  pointer-events: none;
+  animation: ice-shimmer 7s ease-in-out infinite;
+  z-index: 20;
+}
+
+.ice-glass > * {
+  position: relative;
+  z-index: 10;
+}
+
+@keyframes ice-shimmer {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.6; }
+}
+/* ============ End Ice Glass Effect ============ */
+
+/* ============ Zero Noir Design System ============ */
 /* Light Theme Variables */
 :root {
-  --color-bg-main: #FDFBF7;
-  --color-bg-component: #F4F4F6;
-  --color-text-main: #222524;
-  --color-accent: #4A6B5D;
+  --surface-bg: #F5F5F4;
+  --glass-fill: rgba(245, 245, 244, 0.7);
+  --glass-border: rgba(220, 220, 220, 0.4);
+  --color-text-main: #0A0A0A;
+  --color-text-muted: #6B6B6B;
+  --color-accent: #A67C3D;
+  --color-accent-warm: #A67C3D;
+}
+
+/* Ambient Dust Background */
+.ambient-dust {
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 25%, rgba(166, 124, 61, 0.08), transparent 65%),
+    radial-gradient(ellipse 55% 45% at 80% 70%, rgba(166, 124, 61, 0.06), transparent 65%),
+    var(--surface-bg);
 }
 
 /* Dark Theme Variables */
 .dark {
-  --color-bg-main: #0D0E15;
-  --color-bg-component: #171923;
-  --color-text-main: #F3F4F6;
-  --color-accent: #39FF14;
+  --surface-bg: #0A0A0A;
+  --glass-fill: rgba(28, 28, 28, 0.7);
+  --glass-border: rgba(46, 46, 46, 0.4);
+  --color-text-main: #DCDCDC;
+  --color-text-muted: #A8A8A8;
+  --color-accent: #C9A961;
+  --color-accent-warm: #C9A961;
 }
 
-/* Hide default cursor globally */
-*,
-*::before,
-*::after,
-html,
-body,
-a,
-button,
-input,
-select,
-textarea,
-[role="button"] {
-  cursor: none !important;
+/* Dark Glass Background */
+.bg-glass-dark {
+  background: linear-gradient(100deg, #0A0A0A, #1C1C1C, #2E2E2E);
+  background-size: 200% 200%;
+  animation: ultraSlowShift 60s linear infinite;
+}
+
+@keyframes ultraSlowShift {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
 }
 
 /* Global Background - The World Behind the Glass */
@@ -38,33 +96,21 @@ textarea,
   position: fixed;
   inset: 0;
   z-index: -10;
+  overflow: hidden;
 }
 
 #glass-portal-bg::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #FDFBF7, #4A6B5D, #F4F4F6);
+  background: linear-gradient(100deg, #0A0A0A, #1C1C1C, #2E2E2E);
   background-size: 200% 200%;
-  animation: organicShift 20s ease infinite;
+  animation: ultraSlowShift 60s linear infinite;
 }
 
-.dark #glass-portal-bg::before {
-  background: radial-gradient(circle at 20% 30%, #0D0E15, #171923, #0a0a1a);
-  background-size: 200% 200%;
-  animation: cyberPulse 15s ease infinite;
-}
-
-@keyframes organicShift {
-  0%, 100% { background-position: 0% 0%; }
-  50% { background-position: 100% 100%; }
-}
-
-@keyframes cyberPulse {
-  0%, 100% { background-position: 0% 0%; filter: hue-rotate(0deg); }
-  25% { background-position: 100% 0%; }
-  50% { background-position: 100% 100%; filter: hue-rotate(90deg); }
-  75% { background-position: 0% 100%; }
+@keyframes ultraSlowShift {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
 }
 
 * {

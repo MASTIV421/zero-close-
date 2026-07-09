@@ -17,7 +17,10 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   return (
     <motion.div className="group cursor-pointer" whileHover={{ y: -3 }}>
-      <div className="rounded-lg backdrop-blur-xl bg-white/5 border border-white/10 shadow-lg flex flex-col gap-3 dark:bg-white/5 dark:border-neon-green/20 transition-all duration-300">
+      <div className="rounded-lg backdrop-blur-xl bg-mist-100/60 border border-mist-300/40 shadow-lg flex flex-col gap-3 transition-all duration-300 relative overflow-hidden">
+        {/* Accent bar */}
+        <div className="absolute left-0 top-4 bottom-4 w-1 bg-haze-sky rounded-r-full" />
+
         <div className="overflow-hidden rounded-t-lg">
           <img
             src={product.image}
@@ -28,8 +31,8 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
 
         <div className="p-4 flex flex-col gap-2">
-          <h3 className="font-sans text-lg text-[var(--color-text-main)] dark:text-[var(--color-text-main)]">{product.name}</h3>
-          <p className="text-sm text-[var(--color-text-main)]/60 dark:text-[var(--color-text-main)]/60">${product.price}</p>
+          <h3 className="font-sans text-lg text-mist-900">{product.name}</h3>
+          <p className="text-sm text-haze-skyDeep font-medium">${product.price}</p>
         </div>
 
         <div className="px-4 pb-4 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -45,7 +48,7 @@ export default function ProductCard({ product }: ProductCardProps) {
                 selectedColor: product.colors[0] || 'Black',
               })
             }
-            className="w-full backdrop-blur-md bg-white/20 text-[var(--color-text-main)] px-4 py-2 rounded font-sans border border-white/10 dark:bg-neon-green/20 dark:text-black dark:border-neon-green/30 hover:dark:shadow-[0_0_15px_rgba(57,255,20,0.3)] transition-all"
+            className="w-full backdrop-blur-md bg-haze-sky/20 text-mist-900 px-4 py-2 rounded font-sans border border-haze-sky/30 hover:bg-haze-sky/30 transition-all"
           >
             Add to Cart
           </button>

@@ -8,15 +8,15 @@ export default function Cart() {
 
   if (items.length === 0) {
     return (
-      <div className="min-h-screen bg-transparent text-[var(--color-text-main)] pt-24 flex items-center justify-center">
+      <div className="min-h-screen text-black pt-24 flex items-center justify-center">
         <motion.div
-          className="text-center backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-12 dark:bg-white/5 dark:border-neon-green/20"
+          className="text-center backdrop-blur-xl bg-ivory/70 border border-gold/30 rounded-2xl p-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <h1 className="text-4xl font-sans mb-6 text-[var(--color-text-main)] dark:text-[var(--color-text-main)]">YOUR CART IS EMPTY</h1>
+          <h1 className="text-4xl font-sans mb-6 text-black">YOUR CART IS EMPTY</h1>
           <Link to="/shop">
-            <button className="px-8 py-3 bg-white/20 text-[var(--color-text-main)] font-sans rounded-full hover:bg-white/30 dark:bg-neon-green/20 dark:text-black transition-all">
+            <button className="px-8 py-3 bg-gold/25 text-black font-sans rounded-full hover:bg-gold/40 transition-all border border-gold/30">
               Continue Shopping
             </button>
           </Link>
@@ -26,10 +26,10 @@ export default function Cart() {
   }
 
   return (
-    <div className="min-h-screen bg-transparent text-[var(--color-text-main)] pt-24">
-      <div className="container mx-auto px-6 max-w-4xl backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-8 dark:bg-white/5 dark:border-neon-green/20">
+    <div className="min-h-screen text-black pt-24">
+      <div className="container mx-auto px-6 max-w-4xl backdrop-blur-xl bg-ivory/70 border border-gold/30 rounded-2xl p-8">
         <motion.h1
-          className="text-3xl font-sans mb-12 text-[var(--color-text-main)] dark:text-[var(--color-text-main)]"
+          className="text-3xl font-sans mb-12 text-black"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
         >
@@ -40,25 +40,25 @@ export default function Cart() {
           {items.map((item) => (
             <motion.div
               key={`${item.id}-${item.selectedSize}-${item.selectedColor}`}
-              className="flex gap-6 backdrop-blur-md bg-white/5 p-6 rounded-lg dark:bg-white/5"
+              className="flex gap-6 backdrop-blur-md bg-pearl/60 p-6 rounded-lg"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
             >
               <img
                 src={item.image}
                 alt={item.name}
-                className="w-24 h-24 object-cover rounded-lg bg-white/10 dark:bg-white/5"
+                className="w-24 h-24 object-cover rounded-lg bg-graphite/40"
               />
               <div className="flex-1">
-                <h3 className="font-sans text-lg text-[var(--color-text-main)] dark:text-[var(--color-text-main)]">{item.name}</h3>
-                <p className="text-sm text-[var(--color-text-main)]/60 dark:text-[var(--color-text-main)]/60">
+                <h3 className="font-sans text-lg text-black">{item.name}</h3>
+                <p className="text-sm text-steel">
                   {item.selectedSize} / {item.selectedColor}
                 </p>
-                <p className="text-[var(--color-accent)] font-sans dark:text-neon-green">${item.price} × {item.quantity}</p>
+                <p className="text-gold font-sans">${item.price} × {item.quantity}</p>
               </div>
               <button
                 onClick={() => removeItem(item.id, item.selectedSize, item.selectedColor)}
-                className="text-[var(--color-text-main)]/50 hover:text-[var(--color-text-main)] transition-colors dark:text-[var(--color-text-main)]/50 dark:hover:text-[var(--color-text-main)]"
+                className="text-steel hover:text-black transition-colors"
               >
                 <X size={20} />
               </button>
@@ -72,18 +72,18 @@ export default function Cart() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
         >
-          <p className="text-2xl font-sans mb-6 text-[var(--color-text-main)] dark:text-[var(--color-text-main)]">
-            Total: <span className="text-[var(--color-accent)] dark:text-neon-green">${totalPrice()}</span>
+          <p className="text-2xl font-sans mb-6 text-black">
+            Total: <span className="text-gold">${totalPrice()}</span>
           </p>
           <div className="flex gap-4 justify-end">
             <button
               onClick={clearCart}
-              className="px-6 py-2 text-[var(--color-text-main)]/50 hover:text-[var(--color-text-main)] transition-colors font-sans dark:text-[var(--color-text-main)]/50 dark:hover:text-[var(--color-text-main)]"
+              className="px-6 py-2 text-steel hover:text-black transition-colors font-sans"
             >
               Clear Cart
             </button>
             <Link to="/checkout">
-              <button className="px-8 py-3 bg-white/20 text-[var(--color-text-main)] font-sans rounded-full hover:bg-white/30 dark:bg-neon-green/20 dark:text-black transition-all">
+              <button className="px-8 py-3 bg-gold/25 text-black font-sans rounded-full hover:bg-gold/40 transition-all border border-gold/30">
                 Checkout
               </button>
             </Link>
